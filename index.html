@@ -1,12 +1,3 @@
-<!-- ... existing code ... -->
-      const DEFAULT_MODEL_NAME = '8600.glb';
-      // 优先加载同目录下的 8600.glb（适用于 GitHub Pages / 任意静态托管），兼容保留 Google Drive 直链作为备用
-      const GLB_URL_CANDIDATES = [
-        './8600.glb',
-        'https://drive.google.com/uc?export=download&id=1_3VYZ8gPgPbTdm-3kLGSf9Dll6oOE_V1'
-      ];
-      const EXPECTED_FILE_SIZE = 3620836;
-<!-- ... existing code ... -->
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -705,7 +696,7 @@
       gltfLoader.setDRACOLoader(dracoLoader);
 
       const DEFAULT_MODEL_NAME = '8600.glb';
-      const DEFAULT_GLB_URL = 'https://drive.google.com/uc?export=download&id=1_3VYZ8gPgPbTdm-3kLGSf9Dll6oOE_V1';
+      const DEFAULT_GLB_URL = 'https://github.com/l262442016-stack/3d-preview/blob/4a1d8584f4b7a40e856f42d252c023a62340edb0/8600.glb';
       const EXPECTED_FILE_SIZE = 3620836;
 
       const loadingOverlay = document.getElementById('loading-overlay');
