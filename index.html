@@ -717,11 +717,15 @@
         showToast('正在加载模型，请稍候…');
         clearTimeout(loadHardcodedModel._stallTimer);
         loadHardcodedModel._stallTimer = setTimeout(() => {
+          if (!state.modelRoot) showToast('模型较大，仍在加载中，请稍候…');
+        }, 25000);
+        clearTimeout(loadHardcodedModel._timeoutTimer);
+        loadHardcodedModel._timeoutTimer = setTimeout(() => {
           if (!state.modelRoot) {
             modelTitleEl.textContent = '模型加载超时';
             showToast('加载超时：请检查网络后刷新重试（页面需联网加载 Three.js 与 Draco 解码器）');
           }
-        }, 25000);
+        }, 60000);
         if (EMBEDDED_GLB_DATA_URI) {
           try {
             const b64 = EMBEDDED_GLB_DATA_URI.indexOf(',') >= 0
@@ -759,7 +763,7 @@
           (err) => {
             console.error(err);
             modelTitleEl.textContent = '模型加载失败';
-            showToast('未找到 model.glb：请把它放在和本页同一文件夹，或改用内嵌 base64');
+            showToast('模型加载失败：请检查网络后刷新重试');
           }
         );
       }
