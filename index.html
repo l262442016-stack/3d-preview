@@ -725,7 +725,7 @@
             modelTitleEl.textContent = '模型加载超时';
             showToast('加载超时：请检查网络后刷新重试（页面需联网加载 Three.js 与 Draco 解码器）');
           }
-        }, 60000);
+        }, 120000);
         if (EMBEDDED_GLB_DATA_URI) {
           try {
             const b64 = EMBEDDED_GLB_DATA_URI.indexOf(',') >= 0
